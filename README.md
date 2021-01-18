@@ -1,6 +1,6 @@
 # Gama-Academy
 <h1 align="center">
-    <img alt="Gama Academy" src="#" width="200px" />
+    Gama Academy
 </h1>
 
 <p align="center">Neste repositório, você vai encontrar os desafios desenvolvidos durante o<br/>Curso Gama Academy 🎓 (2021). <br/></p>
