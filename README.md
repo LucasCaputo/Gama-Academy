@@ -11,6 +11,10 @@ Tecnologias utilizadas:
 
 - [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5)
 
+### Desafios
+
+- [Minha página BootStrap](https://lucascaputo-bootstrap.netlify.app/)
+
 ### Autor
 ---
 
