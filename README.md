@@ -1,12 +1,13 @@
 # Gama-Academy
 <h1 align="center">
-    <img alt="Gama Academy" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fgama-site-cdn%2Fwp-content%2Fuploads%2F2019%2F08%2F14191548%2FMARCA__CMYK__GAMA-ACADEMY__COR__HORIZONTAL.png&imgrefurl=https%3A%2F%2Fgama.academy%2Fblog%2F&tbnid=6AL2R-RXd8aM1M&vet=12ahUKEwiky-rG0abuAhWALbkGHU76AIcQMygAegUIARCcAQ..i&docid=9UySQUPLd_hSPM&w=3799&h=1578&q=gama%20academy&ved=2ahUKEwiky-rG0abuAhWALbkGHU76AIcQMygAegUIARCcAQ" width="200px" />
+    <img alt="Gama Academy" src="#" width="200px" />
 </h1>
 
 <p align="center">Neste repositório, você vai encontrar os desafios desenvolvidos durante o<br/>Curso Gama Academy 🎓 (2021). <br/></p>
 
 ### 🛠 Tecnologias
-As seguintes ferramentas são utilizada:
+
+Tecnologias utilizadas:
 
 - [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5)
 
