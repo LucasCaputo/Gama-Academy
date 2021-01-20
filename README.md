@@ -9,7 +9,7 @@
 
 Tecnologias utilizadas:
 
-- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5){target=“_blank”}
+- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5):{target=“_blank”}
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS){target=“_blank”}
 
 ### Desafios
