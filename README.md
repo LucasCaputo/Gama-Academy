@@ -16,6 +16,7 @@ Tecnologias utilizadas:
 
 - [Minha página BootStrap](https://lucascaputo-bootstrap.netlify.app/)
 - [Estudando CSS](https://lucascaputo-css.netlify.app/)
+- [Responsividade](https://lucascaputo-responsividade.netlify.app/)
 
 ### Autor
 ---
