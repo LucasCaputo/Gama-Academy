@@ -210,3 +210,52 @@ i {
   background-color: #087e8b;
   color: #fff;
 }
+
+iframe {
+  width: 560px;
+  height: 315px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container.max-width {
+    max-width: 100%;
+  }
+
+  .content-flex {
+    display: flow-root;
+  }
+
+  .content-default {
+    display: grid;
+  }
+
+  .content-space--default {
+    margin-bottom: 4px;
+  }
+
+  .iframe {
+    width: 80%;
+  }
+
+  .flex-wrap {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1381px) {
+  .bg-color--blue {
+    background-color: #435740;
+    color: #fff000;
+  }
+}
+
+@media only screen and (min-width: 1382px) {
+  .container {
+    max-width: 1120px;
+  }
+
+  .bg-color--purple {
+    background-color: #ffa500;
+    color: black;
+  }
+}
