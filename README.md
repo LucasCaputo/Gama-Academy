@@ -9,13 +9,13 @@
 
 Tecnologias utilizadas:
 
-- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5):{target=“_blank”}
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS){target=“_blank”}
+- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 
 ### Desafios
 
-- [Minha página BootStrap](https://lucascaputo-bootstrap.netlify.app/){target=“_blank”}
-- [Estudando CSS](https://lucascaputo-css.netlify.app/){target=“_blank”}
+- [Minha página BootStrap](https://lucascaputo-bootstrap.netlify.app/)
+- [Estudando CSS](https://lucascaputo-css.netlify.app/)
 
 ### Autor
 ---
