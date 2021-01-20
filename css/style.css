@@ -49,6 +49,11 @@ footer {
   background-size: cover;
 }
 
+.container-paralax.home {
+  width: 100%;
+  height: 50vh;
+}
+
 .content-paralax--data {
   text-align: center;
   color: #fff;
@@ -97,6 +102,18 @@ footer {
 
 .content-flex--reverse {
   flex-direction: row-reverse;
+}
+
+a {
+  text-decoration: none;
+}
+
+.label {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 700;
 }
 
 .content-space--default {
