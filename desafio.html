@@ -59,6 +59,7 @@
                                             <input type="text" class="mb-3 form-control" id="city" placeholder="Município">
     
                                         </div>
+
                                         <button type="button" onclick="onClick()" class="btn btn-primary">Enviar</button>
                                     </div>
                                 </div>
@@ -66,29 +67,40 @@
       }
 
       function secondScreen() {
-        let name = this.document.getElementById("name").value;
-        let age = this.document.getElementById("age").value;
-        let profession = this.document.getElementById("profession").value;
-        let address = this.document.getElementById("address").value;
-        let state = this.document.getElementById("state").value;
-        let city = this.document.getElementById("city").value;
-
         app.innerHTML = `<div class="container>
                             <div class="card">
                                 <div class="card-body">  
                                     <div class="card border-primary mb-3" style="max-width: 18rem;">
-                                <div class="card-header">${name}</div>
+                                <div class="card-header">${this.name}</div>
                                 <div class="card-body text-primary">
-                                    <h5 class="card-title">Você tem ${profession} anos</h5>
-                                    <h3 class="card-title">Você tem ${age} anos</h3>
-                                    <p class="card-text">Seu endereço é ${address}, cidade de ${city} no estado de ${state} </p>
+                                    <h5 class="card-title">Você tem ${this.profession} anos</h5>
+                                    <h3 class="card-title">Você tem ${this.age} anos</h3>
+                                    <p class="card-text">Seu endereço é ${this.address}, cidade de ${this.city} no estado de ${this.state} </p>
                                 </div>
                             </div>
                             <button type="button" onclick="onBack()" class="pl-8 btn btn-primary">Fazer mais uma vez</button>
                             </div>`;
       }
+      function load() {
+        app.innerHTML = `<div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            </div>`;
+      }
+
       function onClick() {
-        secondScreen();
+        this.name = document.getElementById("name").value;
+        this.age = document.getElementById("age").value;
+        this.profession = document.getElementById("profession").value;
+        this.address = document.getElementById("address").value;
+        this.state = document.getElementById("state").value;
+        this.city = document.getElementById("city").value;
+
+        load();
+        setTimeout(() => {
+          secondScreen();
+        }, 2000);
       }
 
       function onBack() {
