@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciando com Bootstrap</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const app = document.querySelector("#app");
+
+      app.innerHTML = `   <div class="container">
+                                <div class="card">
+                                    <div class="card-body">  
+                                        <h1>Simulação de consumo de dados da API usando https://webhook.site/</h1>
+                                        <div class="row mb-3">
+                                            <div class="column col-md-4 m-auto">
+                                              <label for="name" class="form-label">Nome</label>
+                                              <input type="text" class="form-control" id="name" placeholder="Seu nome">
+                                            </div>
+                                            <div class="column col-md-4 m-auto">
+                                              <label for="age" class="form-label">Idade</label>
+                                              <input type="number" class="form-control" id="age" placeholder="Sua idade"></input>
+                                            </div>
+                                            <div class="column col-md-4 m-auto">
+                                              <label for="profession" class="form-label">Profissão</label>
+                                              <input type="text" class="form-control" id="profession" placeholder="Sua profissão">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="column col-md-4 m-auto">
+                                              <label for="address" class="form-label">Logradouro</label>
+                                              <input type="text" class="mb-3 form-control" id="address" placeholder="Logradouro">
+                                            </div>
+                                            <div class="column col-md-4 m-auto">
+                                              <label for="city" class="form-label">Cidade</label>
+                                              <input type="text" class="mb-3 form-control" id="city" placeholder="Município">
+                                            </div>
+                                            <div class="column col-md-4 m-auto">
+                                              <label for="state" class="form-label">Estado</label>
+                                              <input type="text" class="mb-3 form-control" id="state" placeholder="Estado">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 m-auto">
+                                          <button type="button" onclick="onSubmit()" style="width: 100%"class="btn btn-primary">Enviar</button>                                          
+                                        </div>
+
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div id="load"></div>
+                            <div id="root"></div>`;
+
+      function onSubmit() {
+        const appCard = document.querySelector("#root");
+        appCard.innerHTML = " ";
+
+        const load = document.querySelector("#load");
+
+        load.innerHTML = `<div class="d-flex justify-content-center align-items-center full-page">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            </div>`;
+
+        name = document.getElementById("name").value;
+        age = document.getElementById("age").value;
+        profession = document.getElementById("profession").value;
+        address = document.getElementById("address").value;
+        state = document.getElementById("state").value;
+        city = document.getElementById("city").value;
+
+        const URL = "https://webhook.site/8dffd737-b68e-4866-8df8-28b184a06265";
+
+        const Body = {
+          name,
+          age,
+        };
+
+        axios.post(URL, Body).then((res) => {
+          console.log("Retorno de Dados", res.data);
+
+          let firtName = name.split(" ");
+
+          appCard.innerHTML = `<div class="container m-auto>
+                                    <div class="card">
+                                      <div class="card-body">  
+                                        <h2>Seja bem-vindo ${res.data.message}</h2>
+                                          <div class="card border-primary m-auto mb-3"style="max-width: 18rem;">
+                                          <div class="card-header">${name}</div>
+                                          <div class="card-body text-primary">
+                                          <h5 class="card-title">Sua Profissão é ${profession}</h5>
+                                          <h3 class="card-title">Você tem ${age} anos</h3>
+                                          <p class="card-text">Seu endereço é ${address}, cidade de ${city} no estado de ${state} </p>
+                                      </div>
+                                </div>
+                            </div>`;
+
+          load.innerHTML = " ";
+        });
+      }
+    </script>
+  </body>
+</html>

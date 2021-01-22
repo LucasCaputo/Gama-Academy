@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciando com Bootstrap</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const app = document.querySelector("#app");
+
+      app.innerHTML = `<div class="container">
+                          <div class="card">
+                            <div class="card-body">
+
+                            <div class="mb-3">
+                              <label for="name" class="form-label">Nome</label>
+                              <input type="text" class="form-control" id="name" placeholder="seu nome">
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="age" class="form-label">Idade</label>
+                              <input type="number" class="form-control" id="age"></input>
+                            </div>
+
+                              <button type="button" onclick="onSubmit()" class="btn btn-primary">Primary</button>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div id="load"></div>
+                        <div id="root"></div>`;
+
+      function onSubmit() {
+        const appCard = document.querySelector("#root");
+        appCard.innerHTML = " ";
+
+        const load = document.querySelector("#load");
+        load.innerHTML = `<div class="d-flex justify-content-center align-items-center full-page">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            </div>`;
+
+        userName = this.document.getElementById("name").value;
+        ageUser = this.document.getElementById("age").value;
+
+        const URL = "https://webhook.site/8dffd737-b68e-4866-8df8-28b184a06265";
+
+        const Body = {
+          name: this.userName,
+          age: this.ageUser,
+        };
+
+        axios.post(URL, Body).then((res) => {
+          console.log("Retorno de Dados", res.data);
+
+          let firtName = userName.split(" ");
+
+          appCard.innerHTML = `<div class="container>
+                                    <div class="card">
+                                        <div class="card-body">
+                                          <h1>Olá, seu primeiro nome é ${firtName[0]} e sua idade é ${ageUser}.</h1>
+                                          <h2>Seja bem-vindo ${res.data.message}</h2>
+                                        </div>
+                                    </div>
+                                    </div>`;
+          load.innerHTML = " ";
+        });
+      }
+    </script>
+  </body>
+</html>
