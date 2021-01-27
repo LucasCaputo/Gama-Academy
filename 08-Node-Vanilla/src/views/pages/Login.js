@@ -73,8 +73,14 @@ let login = {
           if (res.status === 200) {
             window.location.replace("#/dashboard");
             localStorage.setItem("@token", res.data.token);
-            localStorage.setItem('userDataAccount', JSON.stringify(res.data))
+            localStorage.setItem("userDataAccount", JSON.stringify(res.data));
+          } else if (res.status == 400) {
+            alert(res.error);
           }
+        })
+        .catch((err) => {
+          alert(err.response.data.error);
+          window.location.replace("#/singup");
         });
     });
   },

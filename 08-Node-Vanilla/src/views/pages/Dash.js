@@ -1,48 +1,78 @@
 import IsAuthenticated from "../../service/isAuth.js";
+import baseURL from "../../service/baseURL.js";
+
+let RequestDataAccount = async () => {
+  let dataUser = JSON.parse(localStorage.getItem("userDataAccount"));
+
+  let {
+    token,
+    usuario: { login },
+  } = dataUser;
+
+  let headersDefault = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": token,
+    },
+  };
+
+  const response = await axios.get(
+    `${baseURL}lancamentos/planos-conta?login=${login}`,
+    headersDefault
+  );
+
+  const allData = response.data;
+
+  return allData;
+};
 
 let Dash = {
   render: async () => {
+    let ComponentsData = await RequestDataAccount();
+    let userData = JSON.parse(localStorage.getItem("userDataAccount"));
+    const { usuario, conta } = userData;
+    console.log(ComponentsData);
+
     let IsAuth = await IsAuthenticated(
       !localStorage.getItem("@token"),
       "#/login"
     );
 
-    let userData = JSON.parse(localStorage.getItem("userDataAccount"));
 
-    const { usuario, conta } = userData;
-    
-    
+
     let view = `
     <div class="container">
     <section class="row mt-5 mb-5">
-    <div class="row">
-    </div>
-    <p>Olá ${usuario.nome}</p>
-    <p>${conta.saldo.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</p>
-    <div class="col-md-6 m-auto">
-          <ul class="list-group mb-4">
-            <li class="list-group-item disabled" aria-disabled="true">
-            Para Você
-            </li>
-            <li class="list-group-item">Ropas</li>
-            <li class="list-group-item">Acessórios</li>
-            <li class="list-group-item">Cosméticos</li>
-            <li class="list-group-item">Serviços</li>
-          </ul>
+        <div class="row">
         </div>
-    
-        <div class="col-md-6 m-auto">
-          <ul class="list-group mb-4">
-            <li class="list-group-item disabled" aria-disabled="true">
-              Para sua casa
-            </li>
-            <li class="list-group-item">Cozinha</li>
-            <li class="list-group-item">Sala</li>
-            <li class="list-group-item">Quartos</li>
-            <li class="list-group-item">Banheiro</li>
-          </ul>
-        </div>
+        <h3>Olá ${usuario.nome}</h3>
+        <h5>${conta.saldo.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        })}</h5>
+
       </section>
+
+      <section class="p-4">
+
+      <div class="form-group mt-4 cpf">
+        <label for="cpf">CPF</label>
+        <input id="cpf" type="text" maxlength="11" class="form-control" />
+      </div>
+
+      <div class="form-group mt-4">
+        <label for="description">Email</label>
+        <input id="description" type="text" class="form-control" />
+      </div>
+
+      <div class="form-group mt-4">
+        <label for="valor">Valor</label>
+        <input id="value" type="number" class="form-control mb-4" />
+      </div>
+      <button class="btn btn-primary" id="submit_transfer">
+        Fazer Transferência
+      </button>
+    </section>
     
       <section class="container row mb-5">
         <div class="col-md-4 m-auto">
@@ -198,7 +228,11 @@ let Dash = {
 
     return view;
   },
-  after_render: async () => {},
+  after_render: async () => {
+    //   document
+    //     .getElementById("submit_transfer")
+    //     .addEventListener("click", () => {});
+  },
 };
 
 export default Dash;
