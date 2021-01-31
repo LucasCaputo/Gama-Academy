@@ -2,6 +2,7 @@ import IsAuthenticated from "../service/isAuth.js";
 import baseURL from "../service/baseURL.js";
 import DayName from "../service/dayName.js";
 import MonName from "../service/monName";
+import Utils from "../service/Utils.js";
 import logo from "../assets/logo.svg";
 
 const RequestDataAccount = async () => {
@@ -61,7 +62,7 @@ const ModalCredit = `<a
                         class="nav-link p-2"
                         type="button"
                       >
-                        Tranferência
+                        Transferência
                       </a>
                       <div
                         id="modal_aside_right"
@@ -109,7 +110,7 @@ const ModalCredit = `<a
                               <div class="d-flex">
                                 <div class="form-group p-0 m-0">
                                   <label for="data">Data:</label>
-                                  <input type="text" id="data" class="form-control mb-4" />
+                                  <input type="date" id="data" class="form-control mb-4" />
                                 </div>
                                 <div class="form-group p-0 m-0">
                                   <label for="value-transfer">Valor:</label>
@@ -162,6 +163,7 @@ let Dash = {
     let ContaBancoLancamentos = contaBanco.lancamentos;
     let ContaCreditoLancamentos = contaCredito.lancamentos;
     let userData = JSON.parse(localStorage.getItem("userDataAccount"));
+    let entradas = ContaBancoLancamentos.reduce((total, lancamento) => total + lancamento.valor, 0); 
     const dateNow = new Date();
     const {
       usuario: { nome },
@@ -228,16 +230,19 @@ let Dash = {
                 
                   <section class="d-flex justify-content-around dashboard--primary-cards">
                   <div class="card w-25">
-                    <div class="card-body">
-                      <div class="d-flex flex-row justify-content-between">
-                        <p class="align-self-center m-0 fs-6 m-2">Entradas</p>
-                        <i class="bi bi-arrow-up-circle"></i>
-                      </div>
-                
-                      <div>
-                        <p class="fs-4 m-0 p-0">R$ 7.853,25</p>
-                      </div>
+                    <<div class="card-body">
+                    <div class="d-flex flex-row justify-content-between">
+                      <p class="align-self-center m-0 fs-6 m-2">Entradas</p>
+                      <i class="bi bi-arrow-up-circle"></i>
                     </div>
+          
+                    <div>
+                      <p class="fs-4 m-0 p-0">${Intl.NumberFormat("pt-br", {
+                          style: "currency",
+                          currency: "BRL",
+                          }).format(entradas)}</p>
+                    </div>
+                  </div>
                   </div>
                 
                   <div class="card w-25">
@@ -274,6 +279,7 @@ let Dash = {
                 
                 
                 <div class="p-4 mt-4">
+                <h1> Conta Crédito </h1>
                   <table class="table">
                     <thead>
                       <tr>
@@ -299,7 +305,40 @@ let Dash = {
                             ? '<i class="bi bi-arrow-up-circle">'
                             : '<i class="bi bi-arrow-down-circle">'
                         }</i></td>
-                        <td>${lanc.data}</td>
+                        <td>${Utils.convertData(lanc.data)}</td>
+                      </tr>`
+                            ).join("")
+                          : ""
+                      }
+                    </tbody>
+                  </table>
+                  <h1> Conta Banco </h1>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="c-base">Descrição</th>
+                        <th scope="col" class="c-base">Valor</th>
+                        <th scope="col" class="c-base">Categoria</th>
+                        <th scope="col" class="c-base">Data</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${
+                        ContaBancoLancamentos
+                          ? ContaBancoLancamentos.map(
+                              (lanc) => `
+                      <tr>
+                        <th scope="row" class="c-primary">${lanc.descricao}</th>
+                        <td> ${Intl.NumberFormat("pt-br", {
+                          style: "currency",
+                          currency: "BRL",
+                        }).format(lanc.valor)}</td>
+                        <td class="ml-4">${
+                          lanc.tipo == "R"
+                            ? '<i class="bi bi-arrow-up-circle">'
+                            : '<i class="bi bi-arrow-down-circle">'
+                        }</i></td>
+                        <td>${Utils.convertData(lanc.data)}</td>
                       </tr>`
                             ).join("")
                           : ""

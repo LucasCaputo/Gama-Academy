@@ -19,4 +19,8 @@ const Utils = {
     }
 }
 
+function convertData(data) {
+    return moment(data).format('DD/MM/YYYY')
+  }
+
 export default Utils
