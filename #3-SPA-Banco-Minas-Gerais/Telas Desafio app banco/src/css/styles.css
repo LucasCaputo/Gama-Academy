@@ -1,0 +1,135 @@
+/* Home */
+
+/* Cadastro */
+
+/* Login */
+
+#login {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.login--img {
+  background-color: #2a9d8f;
+  height: 100%;
+}
+
+.login--img-bg {
+  position: absolute;
+}
+
+.login--img-logo {
+  height: 100vh;
+  display: flex;
+}
+
+.login--img-logo {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#checkbox:checked {
+  color: #12a454;
+  background-color: #12a454;
+  border-color: #12a454;
+}
+#checkbox:focus {
+  box-shadow: none;
+  border-color: #12a454;
+}
+
+/* Dashboard Header */
+#Dashboard .dashboard--header {
+  background-color: #2a9d8f;
+  height: 240px;
+}
+
+.dashboard--preferences {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+}
+
+.bi-power {
+  font-size: 25px;
+  transition: 0.2s;
+  color: #d4ebe9;
+}
+
+.bi-power:hover {
+  font-size: 28px;
+  opacity: 0.8;
+}
+
+.logo {
+  width: 319px;
+  height: 43px;
+}
+
+#Dashboard .nav-link {
+  font-weight: 600;
+  color: #d4ebe9;
+  border-bottom: 2px solid transparent;
+}
+
+#Dashboard .nav-pills .nav-link.active {
+  color: #fff !important;
+  background-color: transparent;
+  border-bottom: 2px solid #f4a261;
+}
+
+/* Dashboard Primary cards */
+
+#Dashboard .dashboard--primary-cards {
+  margin-top: -50px;
+  color: #363f5f;
+}
+
+#Dashboard .bg-success {
+  background-color: #12a454;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+#Dashboard .fs-4 {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+#Dashboard .c-base {
+  color: #969cb2;
+}
+
+label {
+  color: #969cb2;
+}
+
+.txt-primary {
+  color: #2a9d8f;
+}
+
+/* Dashboard tabela */
+
+#Dashboard tr {
+  color: #363f5f;
+}
+
+.bi-arrow-down-circle {
+  font-size: 25px;
+  color: red;
+  margin-left: 24px;
+}
+
+.bi-arrow-up-circle {
+  font-size: 25px;
+  color: green;
+  margin-left: 24px;
+}
+
+@media (max-width: 900px) {
+  #Dashboard .fs-4 {
+    font-size: 1rem;
+  }
+}

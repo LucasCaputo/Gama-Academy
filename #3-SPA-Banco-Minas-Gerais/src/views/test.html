@@ -1,0 +1,74 @@
+<div>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button
+      id="myButtonAlert"
+      type="button"
+      class="close"
+      data-dismiss="alert"
+      aria-label="Close"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+    Hoje é ${ DayName[dateNow.getDay()] } dia ${dateNow.getDate()} de ${
+    MonName[dateNow.getMonth()] } de ${dateNow.getFullYear()}
+  </div>
+
+  <h3>Olá, ${fullName[0]}</h3>
+  <br />
+
+  ${ModalCredit} ${ModalDebit}
+
+  <div class="row align-items-center mt-5">
+    <div class="col-md-6">
+      <div class="card" style="width: 100%">
+        <div class="card-body">
+          <h5 class="card-title">${ contaBanco ? "Conta Banco" : "" }</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Saldo: ${Intl.NumberFormat("pt-br", { style: "currency", currency:
+            "BRL", }).format(contaBanco.saldo)}
+          </h6>
+          <p class="card-text">Movimentação tipo:</p>
+          ${ ContaBancoLancamentos ? ContaBancoLancamentos.map( (lanc) => `
+          <div class="d-flex">
+            ${lanc.data} ${ lanc.descricao } ${Intl.NumberFormat("pt-br", {
+            style: "currency", currency: "BRL", }).format(lanc.valor)}
+          </div>
+          ` ).join("") : "" }
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card" style="width: 100%">
+        <div class="card-body">
+          <h5 class="card-title">${ contaCredito ? "Conta Crédito" : "" }</h5>
+          <h5>O identificador de sua conta é <b>${ contaCredito.id }</b></h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Saldo: ${Intl.NumberFormat("pt-br", { style: "currency", currency:
+            "BRL", }).format(contaCredito.saldo)}
+          </h6>
+          <p class="card-text">Movimentação tipo:</p>
+
+          ${ ContaCreditoLancamentos ? ContaCreditoLancamentos.map( (lanc) => `
+          <div class="justify-content-between">
+            ${lanc.data} ${ lanc.descricao } ${Intl.NumberFormat("pt-br", {
+            style: "currency", currency: "BRL", }).format(lanc.valor)}
+          </div>
+          ` ).join("") : "" }
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row align-items-center mt-5">
+    ${ ComponentsData ? ComponentsData.map( (data) => `
+    <div class="col">
+      <div class="card" style="width: 100%">
+        <div class="card-body">
+          <h5 class="card-title">${data.descricao}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${data.login}</h6>
+          <p class="card-text">Movimentação tipo: ${data.tipoMovimento}</p>
+        </div>
+      </div>
+    </div>
+    ` ).join("") : "" }
+  </div>
+</div>
