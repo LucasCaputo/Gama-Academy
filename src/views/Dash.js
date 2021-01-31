@@ -2,7 +2,7 @@ import IsAuthenticated from "../service/isAuth.js";
 import baseURL from "../service/baseURL.js";
 import DayName from "../service/dayName.js";
 import MonName from "../service/monName";
-import Utils from "../service/Utils.js";
+import ConvertData from "../service/data.js";
 import logo from "../assets/logo.svg";
 
 const RequestDataAccount = async () => {
@@ -305,7 +305,7 @@ let Dash = {
                             ? '<i class="bi bi-arrow-up-circle">'
                             : '<i class="bi bi-arrow-down-circle">'
                         }</i></td>
-                        <td>${Utils.convertData(lanc.data)}</td>
+                        <td>${ConvertData(lanc.data)}</td>
                       </tr>`
                             ).join("")
                           : ""
@@ -338,7 +338,7 @@ let Dash = {
                             ? '<i class="bi bi-arrow-up-circle">'
                             : '<i class="bi bi-arrow-down-circle">'
                         }</i></td>
-                        <td>${Utils.convertData(lanc.data)}</td>
+                        <td>${ConvertData(lanc.data)}</td>
                       </tr>`
                             ).join("")
                           : ""

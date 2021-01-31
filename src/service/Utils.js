@@ -17,10 +17,9 @@ const Utils = {
     sleep: (ms) => {
         return new Promise( resolve => setTimeout(resolve, ms))
     }
+    
 }
 
-function convertData(data) {
-    return moment(data).format('DD/MM/YYYY')
-  }
+
 
 export default Utils
