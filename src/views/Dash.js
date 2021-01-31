@@ -189,12 +189,11 @@ let Dash = {
                     Olá ${
                       userData.usuario.nome
                     } que bom que você está de volta! Hoje é ${
-      DayName[dateNow.getDay()]
-    } dia ${dateNow.getDate()} de ${
-      MonName[dateNow.getMonth()]
-    } de ${dateNow.getFullYear()}
+                      DayName[dateNow.getDay()]
+                    } dia ${dateNow.getDate()} de ${
+                      MonName[dateNow.getMonth()]
+                    } de ${dateNow.getFullYear()}
                   </div>
-                </div>
           
                 <nav class="navbar navbar-expand-lg nav nav-pills dashboard--header">
                   <div class="d-flex p-2 w-100 justify-content-around">
@@ -238,9 +237,9 @@ let Dash = {
           
                     <div>
                       <p class="fs-4 m-0 p-0">${Intl.NumberFormat("pt-br", {
-                          style: "currency",
-                          currency: "BRL",
-                          }).format(entradas)}</p>
+                        style: "currency",
+                        currency: "BRL",
+                      }).format(entradas)}</p>
                     </div>
                   </div>
                   </div>
@@ -279,7 +278,7 @@ let Dash = {
                 
                 
                 <div class="p-4 mt-4">
-                <h1> Conta Crédito </h1>
+                <h3 class="text-muted"> Conta Crédito </h3>
                   <table class="table">
                     <thead>
                       <tr>
@@ -312,7 +311,7 @@ let Dash = {
                       }
                     </tbody>
                   </table>
-                  <h1> Conta Banco </h1>
+                  <h3 class="text-muted"> Conta Banco </h3>
                   <table class="table">
                     <thead>
                       <tr>
