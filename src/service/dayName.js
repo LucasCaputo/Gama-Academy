@@ -1,11 +1,11 @@
 const dayName = [
-  "Segunda feira",
-  "Terca feira",
-  "Quarta feira",
-  "Quinta feira",
-  "Sexta feira",
-  "Sábado",
-  "Domingo",
+  "segunda-feira",
+  "terca-feira",
+  "quarta-feira",
+  "quinta-feira",
+  "sexta-feira",
+  "sábado",
+  "domingo",
 ];
 
 export default dayName;

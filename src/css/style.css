@@ -45,6 +45,18 @@
 
 /* Dashboard Header */
 
+#Dashboard .alert-welcome {
+  position: absolute;
+  z-index: 99;
+  background-color: transparent;
+  border-color: transparent;
+  color: #d4ebe9;
+}
+
+#Dashboard {
+  overflow: hidden;
+}
+
 #Dashboard .dashboard--header {
   background-color: #2a9d8f;
   height: 240px;
@@ -56,16 +68,17 @@
   top: 32px;
 }
 
-.bi-power {
+.bi-power,
+.bi-arrow-repeat {
   font-size: 25px;
   transition: 0.2s;
   color: #d4ebe9;
   cursor: pointer;
 }
 
-.bi-power:hover {
-  font-size: 28px;
-  opacity: 0.8;
+.bi-power:hover,
+.bi-arrow-repeat:hover {
+  color: #f4a261;
 }
 
 .logo {
@@ -134,28 +147,14 @@ label {
   margin-left: 24px;
 }
 
-@media (max-width: 900px) {
-  #Dashboard .fs-4 {
-    font-size: 1rem;
-  }
+.dashboard-modal.modal-content {
+  background-color: rgba(1, 1, 1, 0.7);
 }
 
-.dash-contentheading {
-  margin: 30px 0px 40px 0px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#refresh {
-  background-color: blueviolet;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 100px !important;
-  padding: 5px;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
+.dashboard-modal.modal-content .modal-body {
+  max-height: 450px;
+  width: 600px;
+  background-color: #d4ebe9;
 }
 
 .modal .modal-dialog-aside {
@@ -186,4 +185,10 @@ label {
 
 .modal.show .modal-dialog-aside {
   transform: translateX(0);
+}
+
+@media (max-width: 900px) {
+  #Dashboard .fs-4 {
+    font-size: 1rem;
+  }
 }
