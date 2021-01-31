@@ -230,7 +230,7 @@ let Dash = {
                 
                   <section class="d-flex justify-content-around dashboard--primary-cards">
                   <div class="card w-25">
-                    <<div class="card-body">
+                    <div class="card-body">
                     <div class="d-flex flex-row justify-content-between">
                       <p class="align-self-center m-0 fs-6 m-2">Entradas</p>
                       <i class="bi bi-arrow-up-circle"></i>
