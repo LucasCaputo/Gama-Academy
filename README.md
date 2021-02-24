@@ -11,6 +11,8 @@ Tecnologias utilizadas:
 
 - [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [NODE](https://nodejs.org/en/)
 
 ### Desafios
 
@@ -18,6 +20,7 @@ Tecnologias utilizadas:
 - [Estudando CSS](https://lucascaputo-css.netlify.app/)
 - [Responsividade](https://lucascaputo-responsividade.netlify.app/)
 - [Simulação de SPA com Vanilla](https://lucascaputo-iniciando-js-vanilla.netlify.app/desafio)
+- [Fake Bank - Node](https://spa-banco-minas-gerais.netlify.app/#/dashboard)
 
 ### Autor
 ---
